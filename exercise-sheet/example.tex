@@ -1,8 +1,8 @@
-%! TEX program = 'xelatex'
 \documentclass[a4paper, 12pt]{article}
 
 \usepackage{exercise-sheet}
 
+% Nem todas as variáveis precisam ser definidas
 \class{Análise Real}
 \title{Lista 1}
 \student{Você}
@@ -11,10 +11,14 @@
 
 \begin{document}
 
-\maketitle
+\maketitle % Produz o cabeçalho da lista
 
-\exercise 
+% Esse comando faz aparecer 'Questão X', a numeração é
+% automática
+\exercise
 
+% Use esse ambiente quando a questão tiver mais partes. Se precisar de
+% mais subdivisões, use um novo ambiente 'enumerate'
 \begin{parts}
 \item Se $ x_{1}, \dots, x_{n}, y_{1}, \dots, y_{n} \in \mathbb{R}$, mostre que \[
         \left( \sum_{i = 1}^{n} x_i y_i \right)^2 \leq \left( \sum_{i = 1}^{n} x_i
@@ -22,6 +26,7 @@
     .\]
 
 
+    % Ambiente de solução
     \begin{solution}
         Considere a função $ f : \mathbb{R} \to \mathbb{R} $ dada por: \[
             f(\lambda) = \sum_{i = 1}^{n} (x_i + \lambda y_i )^2
