@@ -1,4 +1,4 @@
-# How to use
+## How to use
 Simply clone this repository in your local texmf/tex/latex directory, or
 upload the package's files to your prefered online LaTeX editor.
 
