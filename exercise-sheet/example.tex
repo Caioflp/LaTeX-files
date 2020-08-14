@@ -1,0 +1,67 @@
+%! TEX program = 'xelatex'
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{exercise-sheet}
+
+\class{Análise Real}
+\title{Lista 1}
+\student{Você}
+\professor{Professor}
+\semester{2020.2}
+
+\begin{document}
+
+\maketitle
+
+\exercise 
+
+\begin{parts}
+\item Se $ x_{1}, \dots, x_{n}, y_{1}, \dots, y_{n} \in \mathbb{R}$, mostre que \[
+        \left( \sum_{i = 1}^{n} x_i y_i \right)^2 \leq \left( \sum_{i = 1}^{n} x_i
+        ^2 \right) \left( \sum_{i = 1}^{n} y_i ^2 \right) 
+    .\]
+
+
+    \begin{solution}
+        Considere a função $ f : \mathbb{R} \to \mathbb{R} $ dada por: \[
+            f(\lambda) = \sum_{i = 1}^{n} (x_i + \lambda y_i )^2
+        .\]
+        Obviamente temos que $ f(\lambda) \geq 0 $ para todo $ \lambda \in \mathbb{R} $.
+        Isso implica, como $ f $ é um polinômio do segundo grau, em seu
+        discriminante ser menor ou igual a zero. Vamos manipular a regra de
+        $ f $ para calculá-lo:
+        \begin{align*}
+            f(\lambda) &= \sum_{i = 1}^{n} (x_i + \lambda y_i )^2 \\
+                       &= \sum_{i = 1}^{n} x_i ^2 + 2 x_i y_i \lambda + \lambda^2
+                       y_i ^2 \\
+                       &= \left( \sum_{i = 1}^{n} y_i ^2 \right) \lambda^2 + 2
+                       \left( \sum_{i = 1}^{n} x_i y_i \right) \lambda + \sum_{i =
+                       1}^{n} x_i ^2.
+        \end{align*}
+        Com isso, temos:
+        \begin{align*}
+            \Delta &= \left( 2 \left( \sum_{i = 1}^{n} x_i y_i \right) \right) ^2  - 
+            4 \left( \sum_{i = 1}^{n} y_i ^2 \right) \left( \sum_{i = 1}^{n} x_i ^2
+            \right) \\
+                   &= 4 \left( \sum_{i = 1}^{n} x_i y_i \right)^2 - 
+                   4 \left( \sum_{i = 1}^{n} y_i ^2 \right) \left( \sum_{i = 1}^{n} x_i ^2
+                   \right).
+        \end{align*}
+        E, por fim, fazendo $ \Delta \leq 0 $, ficamos com:
+        \begin{align*}
+            4 \left( \sum_{i = 1}^{n} x_i y_i \right)^2 - 
+            4 \left( \sum_{i = 1}^{n} y_i ^2 \right) \left( \sum_{i = 1}^{n} x_i ^2
+            \right) &\leq 0 \\
+            4 \left( \sum_{i = 1}^{n} x_i y_i \right)^2 &\leq
+            4 \left( \sum_{i = 1}^{n} y_i ^2 \right) \left( \sum_{i = 1}^{n} x_i ^2
+            \right) \\
+            \left( \sum_{i = 1}^{n} x_i y_i \right)^2 &\leq \left( \sum_{i = 1}^{n} y_i ^2
+                \right) \left( \sum_{i = 1}^{n} x_i ^2
+            \right). \\
+            \end{align*}
+
+        \end{solution} 
+
+    \end{parts}
+
+    \end{document}
