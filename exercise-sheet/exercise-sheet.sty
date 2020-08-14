@@ -1,0 +1,103 @@
+\ProvidesPackage{exercise-sheet}
+
+%% Document stuff
+
+%% Packages
+
+\usepackage{amsmath, mathtools, amssymb, amsfonts, amsthm}
+\usepackage{fancyhdr}
+\usepackage{blindtext}
+\usepackage[left=1.5cm, hcentering=true, bottom=2cm, top=1.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage{graphicx}
+%\graphicspath{ {./logo/} }
+\usepackage{enumitem}
+\usepackage{afterpage}
+\usepackage[portuguese]{babel}
+\usepackage{float,framed}
+
+%% fancyhdr and pagestyle
+
+\pagestyle{plain}
+\fancyhead[L]{\includegraphics[scale=0.030]{fgv_logo.png}}
+\fancyhead[R]{\Large\textsc{Graduação em Matemática Aplicada} \vspace{1mm}}
+
+%% geometry
+
+\setlength{\fboxrule}{1.0pt}
+\setlength{\fboxsep}{6pt}
+
+%% Muda o espaçamento de linhas
+
+\linespread{1.3}
+
+%% Novas Macros
+
+\makeatletter
+
+% Variáveis - matéria, aluno, professor, etc.
+
+\def\@class{\relax}
+\newcommand{\class}[1]{\gdef\@class{#1}}
+
+\def\@student{\relax}
+\newcommand{\student}[1]{\gdef\@student{\\ Aluno: {#1}}}
+
+\def\@professor{\relax}
+\newcommand{\professor}[1]{\gdef\@professor{\\ Professor: {#1}}}
+
+\def\@semester{\relax}
+\newcommand{\semester}[1]{\gdef\@semester{ -- {#1} \\}}
+
+% Título
+
+\renewcommand{\maketitle}{%
+    \thispagestyle{fancy}
+
+    \newgeometry{left=1.5cm, hcentering=true, bottom=3cm, top=90pt, head=60.0pt,
+    footskip=2cm}
+
+    \begin{center}
+        \framebox[\textwidth]{\parbox{\textwidth}{\centering\Large\textbf{%
+            \@class \@semester \@title}
+            \normalsize{\@professor}
+        \normalsize{\@student}}}
+    \end{center}
+
+    \afterpage{\restoregeometry}
+
+    \bigskip
+}
+\makeatother
+
+% Comando para novo exercício
+
+\newcounter{exercise}[section]
+\newcommand{\exercise}{\bigskip\refstepcounter{exercise}%
+    {\large\bfseries Exercício \theexercise}
+    \vspace{-2mm}
+    \strut\newline
+    \rule[0.5ex]{\textwidth}{1.2pt}
+}
+
+% Ambiente para questões com múltiplas partes
+
+\newenvironment{parts}
+{\begin{enumerate}[label=(\alph*)]}
+{\end{enumerate}}
+
+% Ambiente de solução
+
+\newfloat{Box}{h}{lob}[section]
+
+\newenvironment{solution}
+{
+    \vspace{2mm}
+    \noindent\textbf{Resolução:}
+    \strut\newline
+    \smallskip
+}
+{}
+
+
+
