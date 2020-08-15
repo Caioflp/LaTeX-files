@@ -7,7 +7,7 @@
 \usepackage{amsmath, mathtools, amssymb, amsfonts, amsthm}
 \usepackage{fancyhdr}
 \usepackage{blindtext}
-\usepackage[left=1.5cm, hcentering=true, bottom=2cm, top=1.5cm]{geometry}
+\usepackage[includeheadfoot, left=1.5cm, hcentering=true, bottom=2cm, top=1.5cm]{geometry}
 \usepackage{tabularx}
 \usepackage{graphicx}
 %\graphicspath{ {./logo/} }
@@ -19,8 +19,17 @@
 %% fancyhdr and pagestyle
 
 \pagestyle{plain}
-\fancyhead[L]{\includegraphics[scale=0.030]{fgv_logo.png}}
-\fancyhead[R]{\Large\textsc{Graduação em Matemática Aplicada} \vspace{1mm}}
+
+\fancypagestyle{first-page}{
+    \fancyhead[L]{\includegraphics[scale=0.030]{fgv_logo.png}}
+    \fancyhead[R]{\Large\textsc{Graduação em Matemática Aplicada} \vspace{1mm}} 
+    \fancyfoot[C]{\thepage}
+    %\newgeometry{left=1.5cm, hcentering=true, bottom=2cm, top=90pt, head=60.0pt,
+    %footskip=2cm}
+    \setlength{\headheight}{55pt}
+    % Trying to not use \newgeometry, to avoid page dimensions changin in
+    % all the document.
+}
 
 %% geometry
 
@@ -52,10 +61,7 @@
 % Título
 
 \renewcommand{\maketitle}{%
-    \thispagestyle{fancy}
-
-    \newgeometry{left=1.5cm, hcentering=true, bottom=3cm, top=90pt, head=60.0pt,
-    footskip=2cm}
+\thispagestyle{first-page}
 
     \begin{center}
         \framebox[\textwidth]{\parbox{\textwidth}{\centering\Large\textbf{%
@@ -72,7 +78,7 @@
 
 % Comando para novo exercício
 
-\newcounter{exercise}[section]
+\newcounter{exercise}[subsection]
 \newcommand{\exercise}{\bigskip\refstepcounter{exercise}%
     {\large\bfseries Questão \theexercise}
     \vspace{-2mm}
