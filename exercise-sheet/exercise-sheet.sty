@@ -73,12 +73,8 @@
 % Comando para novo exercício
 
 \newcounter{exercise}[section]
-\newcommand{\exercise}{\bigskip\refstepcounter{exercise}%
-    {\large\bfseries Questão \theexercise}
-    \vspace{-2mm}
-    \strut\newline
-    \rule[0.5ex]{\textwidth}{1.2pt}
-}
+\newcommand{\exercise}{\refstepcounter{exercise}%
+    {\noindent\bfseries Questão \theexercise.} }
 
 % Ambiente para questões com múltiplas partes
 
